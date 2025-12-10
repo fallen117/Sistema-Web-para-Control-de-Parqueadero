@@ -1,0 +1,414 @@
+/* ---------------------------------------------------------
+   1. RESET BÁSICO
+--------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------
+   LOGIN FORM — Ajustes de diseño limpio
+--------------------------------------------------------- */
+
+.login-card {
+    padding: 32px 28px;
+    border-radius: 14px;
+    background: var(--card);
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-light);
+    transition: box-shadow .2s;
+}
+
+.login-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-dark);
+}
+
+.login-btn {
+    margin-top: 10px;
+    padding: 12px 0;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.login-demo-msg {
+    margin-top: 18px;
+    text-align: center;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 24px 18px;
+    }
+
+    .login-form {
+        gap: 14px;
+    }
+}
+
+/* ---------------------------------------------------------
+   2. VARIABLES GLOBALES — colores actualizados
+--------------------------------------------------------- */
+
+:root {
+    --bg: #F5F6F8;
+    --card: #FFFFFF;
+    --primary: #3A7AFE;
+    --primary-hover: #2F66D2;
+
+    --muted: #6f7682;
+    --gray-dark: #2E3239;
+
+    --text: #111827;
+    --accent: #2ECC71;
+
+    --border-light: #E1E2E6;
+
+    --radius: 10px;
+    --radius-lg: 14px;
+
+    --gap: 16px;
+    --shadow: 0 4px 16px rgba(0,0,0,0.06);
+
+    --max-width: 1100px;
+}
+
+/* ---------------------------------------------------------
+   3. TIPOGRAFÍA / UTILIDADES
+--------------------------------------------------------- */
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    font-size: 13px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   4. ELEMENTOS BASE — Inputs, botones, selects
+--------------------------------------------------------- */
+
+input,
+select,
+textarea {
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid #D9DCE2;
+    background: #fff;
+    outline: none;
+    transition: border-color .18s, box-shadow .18s;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(58, 122, 254, 0.15);
+}
+
+.btn {
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all .22s;
+}
+
+.btn:hover {
+    background: #28b968;
+}
+
+.btn.primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn.primary:hover {
+    background: var(--primary-hover);
+}
+
+#logoutBtn,
+#logoutBtnOp {
+    background-color: #E74C3C;
+    color: white;
+}
+
+#logoutBtn:hover,
+#logoutBtnOp:hover {
+    background-color: #cc3e30;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.btn-editar {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-eliminar {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: #E74C3C;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#tarCancelar {
+    background-color: #E74C3C;
+}
+
+#tarCancelar:hover {
+    background-color: #cc3e30;
+}
+
+/* ---------------------------------------------------------
+   TABLAS
+--------------------------------------------------------- */
+
+.table-wrap {
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+table th,
+table td {
+    padding: 12px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #EFF1F4;
+}
+
+table thead th {
+    background: #F0F2F5;
+    color: var(--gray-dark);
+    font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   5. FORMULARIOS
+--------------------------------------------------------- */
+
+.form-inline {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.form-buttons-actions button{
+    margin-top: 25px;
+}
+
+/* ---------------------------------------------------------
+   6. COMPONENTES
+--------------------------------------------------------- */
+
+.card {
+    background: var(--card);
+    padding: 18px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    margin-bottom: 18px;
+    border: 1px solid var(--border-light);
+}
+.card div{
+    margin: 15px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.cupos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.chip {
+    padding: 12px;
+    text-align: center;
+    background: #F3F4F6;
+    border-radius: 12px;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+}
+.chip div{
+    margin: 15px;
+}
+
+/* ---------------------------------------------------------
+   WhatsApp Button
+--------------------------------------------------------- */
+
+.whatsapp-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #25d366;
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    transition: all .2s;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+.whatsapp-fab:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgb(37, 211, 102);
+}
+
+/* ---------------------------------------------------------
+   7. LAYOUT GENERAL
+--------------------------------------------------------- */
+
+.layout {
+    display: block;
+    min-height: 100vh;
+}
+
+/* HEADER */
+.topbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E1E2E6;
+    top: 0;
+    z-index: 40;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-dark);
+}
+
+.top-actions {
+    margin-left: auto;
+}
+
+.content {
+    padding: 22px;
+    max-width: var(--max-width);
+    margin: 14px auto;
+}
+
+/* ---------------------------------------------------------
+   8. LOGIN PAGE
+--------------------------------------------------------- */
+
+.page-auth {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #F6F7F9, #ECEEF2);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 24px;
+}
+
+.auth-card {
+    background: var(--card);
+    padding: 24px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-light);
+}
+
+.brand {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   9. RESPONSIVE
+--------------------------------------------------------- */
+
+@media (max-width: 560px) {
+    .auth-container {
+        padding: 12px;
+    }
+
+    .topbar {
+        height: 56px;
+        padding: 0 16px;
+    }
+
+    .page-title {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Operario - Parqueadero</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap">
+</head>
+
+<body class="layout">
+    <header class="topbar">
+        <h2 class="page-title">Gestión de parqueadero - Operario</h2>
+        <div class="top-actions">
+            <button id="logoutBtn" class="btn">Cerrar sesión</button>
+        </div>
+    </header>
+
+
+
+    <main class="content">
+        <section id="entrada" class="card">
+            <h3>Registrar Entrada</h3>
+            <form id="entradaForm" class="grid-form">
+                <input id="entPlaca" name="entPlaca" type="text" placeholder="ABC123" maxlength="6" pattern="[A-Za-z]{3}[0-9]{3}" required />
+                <select id="entTipo">
+                    <option value="sedan">Automóvil</option>
+                    <option value="moto">Moto</option>
+                </select>
+                <button class="btn primary" type="submit">Registrar entrada</button>
+            </form>
+            <div id="entradaMsg" class="muted small"></div>
+        </section>
+
+        <section id="salida" class="card">
+            <h3>Registrar Salida</h3>
+            <form id="salidaForm" class="grid-form">
+                <input id="salPlaca" placeholder="Placa" required />
+                <button class="btn" type="submit">Buscar y generar cobro</button>
+            </form>
+            <div id="salidaMsg" class="muted small"></div>
+        </section>
+
+        <section id="cupos" class="card">
+            <h3>Cupos</h3>
+            <div class="cupos-grid">
+                <div class="chip"><strong>Autos totales</strong>
+                    <div id="autosTot">30</div>
+                </div>
+                <div class="chip"><strong>Autos disponibles</strong>
+                    <div id="autosDisp">30</div>
+                </div>
+                <div class="chip"><strong>Motos totales</strong>
+                    <div id="motosTot">15</div>
+                </div>
+                <div class="chip"><strong>Motos disponibles</strong>
+                    <div id="motosDisp">15</div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="histEntradas" class="card">
+            <h3>Vehículos dentro actualmente</h3>
+            <div class="table-wrap">
+                <table id="tablaEntradas">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Hora Entrada</th>
+                        </tr>
+                    </thead>
+                    <tbody><!-- Se llena con JS --></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HISTORIAL DE SALIDAS -->
+        <section id="histSalidas" class="card">
+            <h3>Historial de Salidas</h3>
+            <div class="table-wrap">
+                <table id="tablaSalidas">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Entrada</th>
+                            <th>Salida</th>
+                            <th>Minutos</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody><!-- Se llena con JS --></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <a class="whatsapp-fab" href="https://wa.me/573001234567" target="_blank" aria-label="Soporte WhatsApp">WhatsApp</a>
+
+    <script src="operario.js"></script>
+</body>
+
+</html>
