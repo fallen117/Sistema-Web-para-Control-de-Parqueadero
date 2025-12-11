@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin - Parqueadero</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="layout">
+  <header class="topbar">
+    <h2 class="page-title">Gestión de parqueadero - Administrador</h2>
+    <div class="top-actions">
+      <button id="logoutBtn" class="btn">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- TARIFAS — SOLO EDITAR (AUTO / MOTO) -->
+    <section id="tarifas" class="card">
+      <div class="card-header">
+        <h3>Gestión de Tarifas</h3>
+      </div>
+
+      <!-- Formulario para editar una tarifa existente -->
+      <form id="tarifaForm" class="form-inline hidden" aria-hidden="true">
+        <div class="form-group">
+          <label for="tarNombre">Categoría</label>
+          <input id="tarNombre" placeholder="Nombre" disabled />
+        </div>
+
+        <div class="form-group">
+          <label for="tarTipoCobro">Modalidad</label>
+          <select id="tarTipoCobro">
+            <option value="POR_MINUTO">Por minuto</option>
+            <option value="POR_HORA">Por hora</option>
+            <option value="POR_DIA">Por día</option>
+            <option value="FRACCION">Fracción</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tarValor">Valor</label>
+          <input id="tarValor" type="number" min="0" placeholder="Monto" required />
+        </div>
+
+        <div style="display:flex;gap:8px;" class="form-buttons-actions">
+          <button id="tarGuardar" class="btn primary" type="submit">Guardar</button>
+          <button id="tarCancelar" class="btn" type="button">Cancelar</button>
+        </div>
+      </form>
+
+      <div class="table-wrap" style="margin-top:14px;">
+        <table id="tarifasTable">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Modalidad</th>
+              <th>Valor</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody><!-- filas generadas por JS --></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- USUARIOS (demo) -->
+    <section id="usuarios" class="card">
+      <h3>Usuarios</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Rol</th>
+              <th>Activo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Admin Demo</td>
+              <td>admin@demo.com</td>
+              <td>Administrador</td>
+              <td>Sí</td>
+            </tr>
+            <tr>
+              <td>Operario Demo</td>
+              <td>op@demo.com</td>
+              <td>Operario</td>
+              <td>Sí</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="reportes" class="card">
+      <h3>Reportes</h3>
+      <p class="muted">Aquí se mostrarán filtros y gráficos (implementación posterior).</p>
+    </section>
+  </main>
+
+  <a class="whatsapp-fab" href="https://wa.me/573001234567" target="_blank" aria-label="Soporte WhatsApp">WhatsApp</a>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>
