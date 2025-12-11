@@ -420,12 +420,17 @@ table thead th {
   background: #fff;
   border: 1px dashed #444;
   padding: 18px;
-  margin-top: 15px;
+  margin-top: 20px;
   border-radius: 8px;
   width: 260px;
   font-family: 'Roboto', sans-serif;
   animation: fadeIn 0.3s ease-out;
 }
+
+#ticketContainer {
+    margin: 20px auto;   
+}
+
 
 .ticket.hidden {
   display: none;
